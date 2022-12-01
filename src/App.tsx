@@ -25,9 +25,6 @@ function App() {
 
   if (!result) return <h1>Loading...</h1>;
 
-  console.log(page);
-  console.log(result);
-
   return (
     <div className="flex w-full h-screen justify-between flex-col">
       <Mainbody
