@@ -32,6 +32,7 @@ function App() {
     <div className="flex w-full h-screen justify-between flex-col">
       <Mainbody
         giveSearch={(v: string) => {
+          setPage(1);
           setSearch(v);
         }}
         givePage={(v: number) => {
