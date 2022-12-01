@@ -1,25 +1,28 @@
 import { IApi } from "../interface/interface";
 import Card from "./card";
+import Pagination from "./pagination";
 import Search from "./search";
 
 const Mainbody = ({
   giveSearch,
+  givePage,
   data,
 }: {
   giveSearch: Function;
+  givePage: Function;
   data: IApi;
 }) => {
   return (
     <main className="w-full flex-1">
       <div className="flex justify-center items-center flex-col w-full">
-        <h1 className="text-[3rem]">Welcome to Movie Search App</h1>
-        <hr className="border-solid w-full border-red-500 mt-2" />
+        <h1 className="laptop:text-[3rem] laptop:leading-7 tablet:text-xl m-5">
+          Welcome to Movie Search App
+        </h1>
         <Search
           giveSearch={(v: string) => {
             giveSearch(v);
           }}
         />
-        <hr className="border-solid w-full border-red-500 mt-2" />
         <div className="flex flex-wrap justify-center">
           {data.Search?.length &&
             data.Search.map((element) => {
@@ -35,6 +38,13 @@ const Mainbody = ({
               );
             })}
         </div>
+        {parseInt(data.totalResults) > 10 && (
+          <Pagination
+            givePage={(v: string) => {
+              givePage(v);
+            }}
+          />
+        )}
       </div>
     </main>
   );

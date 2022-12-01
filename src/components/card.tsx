@@ -14,12 +14,24 @@ const Card = ({
   imdbid: string;
 }) => {
   return (
-    <div className="bg-red-500 w-[20rem] h-[20rem] m-2">
-      <h3>{title}</h3>
-      <img src={poster} alt={`movie poster ${title}`} />
-      <p>{type}</p>
-      <p>{year}</p>
-      <p>{imdbid}</p>
+    <div className="card laptop:w-96 tablet:w-70 bg-base-100 shadow-xl m-4">
+      <figure>
+        <img src={poster} alt={`Movie poster ${title}`} />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <a
+          className="link link-primary"
+          href={`https://www.imdb.com/title/${imdbid}`}
+          target="_blank"
+        >
+          Imdb Link
+        </a>
+        <div className="card-actions justify-end">
+          <div className="badge badge-outline">{year}</div>
+          <div className="badge badge-outline">{type}</div>
+        </div>
+      </div>
     </div>
   );
 };

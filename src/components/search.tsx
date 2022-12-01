@@ -4,15 +4,16 @@ const Search = ({ giveSearch }: { giveSearch: Function }) => {
   const [search, setSearch] = useState("");
 
   return (
-    <div className="flex w-full items-center justify-center flex-col">
-      <h2 className="mt-4 text-xl">Search what movie you wan't to see</h2>
+    <div className="flex w-full items-center justify-center flex-col m-5">
+      {/* <h2 className="mt-4 text-xl">Search what movie you wan't to see?</h2> */}
       <input
         onChange={(e) => {
           setSearch(e.target.value);
           giveSearch(search);
         }}
-        className="w-[90%] border border-cyan-500 m-4"
+        className="input input-bordered w-full max-w-lg"
         type="text"
+        placeholder="What movie you want to search?"
       />
     </div>
   );
